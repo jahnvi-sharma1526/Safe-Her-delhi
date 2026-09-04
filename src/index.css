@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Quicksand', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Poppins', 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --color-blush: #FBE4E8;
+  --color-warm-ivory: #FDF7F4;
+  --color-lavender: #E5DFF2;
+  --color-lavender-light: #F4F1FA;
+  --color-soft-gold: #D4AF7A;
+  --color-muted-coral: #E89C8B;
+  --color-muted-coral-hover: #DC8876;
+  --color-deep-plum: #4A2E3A;
+  --color-taupe-gray: #8B7A82;
+  --color-soft-sage: #9BB79C;
+  --color-soft-sage-light: #EBF3EA;
+}
+
+:root {
+  --logo-blush: #f6c9d4;
+  --logo-blush-deep: #ec9fb2;
+  --logo-rose: #e0708f;
+  --logo-rose-deep: #c14f6f;
+  --logo-plum: #5c2a3d;
+  --logo-cream: #fff7f5;
+  --logo-gold: #f0c987;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #FDF7F4;
+  color: #4A2E3A;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Poppins', 'Quicksand', sans-serif;
+}
+
+.font-quicksand {
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Hide scrollbars for clean horizontal swipe */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Micro-interaction for subtle heart float */
+@keyframes heartFloat {
+  0% { transform: scale(0.8) translateY(0); opacity: 1; }
+  50% { transform: scale(1.15) translateY(-6px); opacity: 1; }
+  100% { transform: scale(1) translateY(-12px); opacity: 0; }
+}
+
+.animate-heart-float {
+  animation: heartFloat 0.6s ease-out forwards;
+}
+
+/* SafeHer Logo Animations */
+@keyframes logoDropIn {
+  0%   { opacity: 0; transform: translateY(45px) rotate(6deg); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes logoShimmerSweep {
+  0%   { left: -40%; }
+  30%  { left: 120%; }
+  100% { left: 120%; }
+}
+
+@keyframes logoHeartIn {
+  from { opacity: 0; transform: scale(0); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes logoHeartBeat {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.25); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.15); }
+  60%      { transform: scale(1); }
+}
+
+@keyframes logoFadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 0.9; transform: translateY(0); }
+}
+
+.logo-letter {
+  font-family: Georgia, 'Times New Roman', serif;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(45px) rotate(6deg);
+  animation: logoDropIn 0.65s cubic-bezier(.2, .8, .25, 1.1) forwards;
+}
+
+.logo-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: logoShimmerSweep 3s ease-in-out infinite;
+  animation-delay: 1.3s;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.logo-heart-anim {
+  display: inline-block;
+  opacity: 0;
+  animation: logoHeartIn 0.5s ease forwards, logoHeartBeat 1.6s ease-in-out infinite 1.4s;
+  animation-delay: 0.95s, 1.45s;
+  transform-origin: center;
+}
+
+.logo-tagline-anim {
+  opacity: 0;
+  animation: logoFadeUp 0.7s ease forwards;
+  animation-delay: 1.15s;
+}

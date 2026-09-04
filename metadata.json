@@ -1,0 +1,6 @@
+{
+  "name": "SafeHer Delhi",
+  "description": "A premium lifestyle and safety companion for young women exploring Delhi's cafes, markets, malls, and safe routes.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
